@@ -20,8 +20,9 @@ function has_file($filename) {
 }
 
 function get-programfilesdir() {
+    $use64bit = use64bit
     $is64bitOS = (Get-WmiObject -Class Win32_ComputerSystem).SystemType -match ‘(x64)’
-    if (use64bit -or !$is64bitOS) {
+    if ($use64bit -or (-not $is64bitOS)) {
         $programFiles = (Get-Item "Env:ProgramFiles").Value
     } else {
         $programFiles = (Get-Item "Env:ProgramFiles(x86)").Value
