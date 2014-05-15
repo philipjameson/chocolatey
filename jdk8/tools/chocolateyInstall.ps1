@@ -47,13 +47,13 @@ function download-from-oracle($url, $output_filename) {
 
         [System.Net.ServicePointManager]::ServerCertificateValidationCallback = { $true }
         $client = New-Object Net.WebClient
-        $client.Headers.Add('Cookie', 'gpw_e24=http://www.oracle.com; oraclelicense=accept-securebackup-cookie')
-        $client.DownloadFile($url, $output_filename)
+        $dummy = $client.Headers.Add('Cookie', 'gpw_e24=http://www.oracle.com; oraclelicense=accept-securebackup-cookie')
+        $dummy = $client.DownloadFile($url, $output_filename)
     }  
 }
 
 function download-jdk-file($url, $output_filename) {
-    download-from-oracle $url $output_filename
+    $dummy = download-from-oracle $url $output_filename
 }
 
 function download-jdk() {
@@ -62,7 +62,7 @@ function download-jdk() {
     $url = "http://download.oracle.com/otn-pub/java/jdk/$jdk_version-b$build/$filename"
     $output_filename = Join-Path $script_path $filename
 
-    download-jdk-file $url $output_filename
+    $dummy = download-jdk-file $url $output_filename
 
     return $output_filename
 }
