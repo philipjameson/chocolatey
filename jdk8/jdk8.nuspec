@@ -3,11 +3,11 @@
   <metadata>
     <id>jdk8</id>
     <title>Java SE 8u5 </title>
-    <version>1.8.0.0507</version>
+    <version>8.0.5</version>
     <authors>Sun Microsystems/Oracle Corporation</authors>
     <owners>oota_ken</owners>
-    <summary>The Java Development Kit (JDK) version 8.0.05</summary>
-    <description>The Java Development Kit (JDK) version 8.0.05</description>
+    <summary>The Java Development Kit (JDK) version 8.0.5</summary>
+    <description>The Java Development Kit (JDK) version 8.0.5</description>
     <projectUrl>http://www.oracle.com/technetwork/java/javase/downloads/index.html</projectUrl>
     <tags>java jdk</tags>
     <licenseUrl>http://www.oracle.com/technetwork/java/javase/terms/license/index.html</licenseUrl>
