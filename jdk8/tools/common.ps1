@@ -1,8 +1,7 @@
-﻿$jdk_version = '8u5' 
-$build = '13'
-$java_version = "1.8.0_05" # cmd> java -version => "1.7.0_04"
-$uninstall_id = "18005" 
-$package_name = 'Java.JDK'
+﻿$jdk_version = '8u11' 
+$build = '12'
+$java_version = "1.8.0_11" # cmd> java -version => "1.7.0_04"
+$uninstall_id = "18011" 
 $script_path = $(Split-Path -parent $MyInvocation.MyCommand.Definition)
 
 function use64bit() {
