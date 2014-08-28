@@ -2,12 +2,12 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>jdk8</id>
-    <title>Java SE 8u11 </title>
-    <version>8.0.11</version>
+    <title>Java SE 8u20</title>
+    <version>8.0.20</version>
     <authors>Sun Microsystems/Oracle Corporation</authors>
     <owners>oota_ken</owners>
-    <summary>The Java Development Kit (JDK) version 8.0.11</summary>
-    <description>The Java Development Kit (JDK) version 8.0.11</description>
+    <summary>The Java Development Kit (JDK) version 8.0.20</summary>
+    <description>The Java Development Kit (JDK) version 8.0.20</description>
     <projectUrl>http://www.oracle.com/technetwork/java/javase/downloads/index.html</projectUrl>
     <tags>java jdk</tags>
     <licenseUrl>http://www.oracle.com/technetwork/java/javase/terms/license/index.html</licenseUrl>
