@@ -4,6 +4,9 @@ $uninstall_id = "18020"
 $script_path = $(Split-Path -parent $MyInvocation.MyCommand.Definition)
 
 function use64bit() {
+    if (Test-Path (Join-Path $script_path "i586.txt")) {
+        return $false
+    }
     $is64bitOS = (Get-WmiObject -Class Win32_ComputerSystem).SystemType -match ‘(x64)’
     return $is64bitOS
 }
@@ -55,4 +58,10 @@ function chocolatey-install() {
     Install-ChocolateyInstallPackage 'jre8' 'exe' "/s" $jre_file          
 
     Write-ChocolateySuccess 'jre8'
+}
+
+function out-i586($params) {
+    if ($params.i586 -eq $true -or $params.x64 -eq "false") {
+        Out-File (Join-Path $script_path "i586.txt")
+    }
 }
