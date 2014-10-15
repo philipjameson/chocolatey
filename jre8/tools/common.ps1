@@ -1,6 +1,6 @@
-﻿$jre_version = '8u20' 
-$build = '26'
-$uninstall_id = "18020" 
+﻿$jre_version = '8u25' 
+$build = '18'
+$uninstall_id = "18025" 
 $script_path = $(Split-Path -parent $MyInvocation.MyCommand.Definition)
 
 function use64bit() {

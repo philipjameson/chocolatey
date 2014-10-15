@@ -2,12 +2,12 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>jre8</id>
-    <title>Java SE Runtime Environment 8u20</title>
-    <version>8.0.20.01</version>
+    <title>Java SE Runtime Environment 8u25</title>
+    <version>8.0.25</version>
     <authors>Sun Microsystems/Oracle Corporation</authors>
     <owners>oota_ken</owners>
-    <summary>Java SE Runtime Environment 8.0.20</summary>
-    <description>Java SE Runtime Environment 8.0.20</description>
+    <summary>Java SE Runtime Environment 8.0.25</summary>
+    <description>Java SE Runtime Environment 8.0.25</description>
     <projectUrl>http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html</projectUrl>
     <tags>java jre</tags>
     <licenseUrl>http://www.oracle.com/technetwork/java/javase/terms/license/index.html</licenseUrl>
