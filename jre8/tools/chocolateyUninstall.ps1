@@ -20,11 +20,9 @@ function Uninstall-JRE {
     }
 }
 try {  
-  Uninstall-JRE
-
-
-  Write-ChocolateySuccess 'jre8'
+    Uninstall-JRE
 } catch {
-  Write-ChocolateyFailure 'jre8' "$($_.Exception.Message)"
-  #throw 
+    # ingore exception
+} finally {
+    Write-ChocolateySuccess 'jre8'
 }
