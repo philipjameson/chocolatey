@@ -3,11 +3,11 @@
   <metadata>
     <id>jre8</id>
     <title>Java SE Runtime Environment</title>
-    <version>8.0.25.02</version>
+    <version>8.0.25.03</version>
     <authors>Sun Microsystems/Oracle Corporation</authors>
     <owners>oota_ken</owners>
-    <summary>Java SE Runtime Environment 8.0.25.02</summary>
-    <description>Java SE Runtime Environment 8.0.25.02</description>
+    <summary>Java SE Runtime Environment 8.0.25.03</summary>
+    <description>Java SE Runtime Environment 8.0.25.03</description>
     <projectUrl>http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html</projectUrl>
     <tags>java jre</tags>
     <licenseUrl>http://www.oracle.com/technetwork/java/javase/terms/license/index.html</licenseUrl>
