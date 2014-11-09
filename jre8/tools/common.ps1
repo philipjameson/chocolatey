@@ -22,9 +22,7 @@ function download-from-oracle($url, $output_filename) {
     if (-not (has_file($output_fileName))) {
         Write-Host  "Downloading jre from $url"
 
-        [System.Net.ServicePointManager]::ServerCertificateValidationCallback = { $true }
         $client = New-Object Net.WebClient
-        $dummy = $client.Headers.Add('Cookie', 'gpw_e24=http://www.oracle.com; oraclelicense=accept-securebackup-cookie')
         $dummy = $client.DownloadFile($url, $output_filename)
     }  
 }
@@ -36,7 +34,12 @@ function download-jre-file($url, $output_filename) {
 function download-jre($Forcei586 = $false) {
     $arch = get-arch $Forcei586
     $filename = "jre-$jre_version-windows-$arch.exe"
-    $url = "http://download.oracle.com/otn-pub/java/jdk/$jre_version-b$build/$filename"
+    if ($arch -eq "x64") {
+       $bundleId = "98428"
+    } else {
+       $bundleId = "98426"
+    }
+    $url = "http://javadl.sun.com/webapps/download/AutoDL?BundleId=$bundleId"
     $output_filename = Join-Path $script_path $filename
 
     $dummy = download-jre-file $url $output_filename
