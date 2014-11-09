@@ -2,17 +2,17 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>jdk8</id>
-    <title>Java SE 8u25</title>
-    <version>8.0.25</version>
+    <title>Java SE</title>
+    <version>8.0.25.03</version>
     <authors>Sun Microsystems/Oracle Corporation</authors>
     <owners>oota_ken</owners>
-    <summary>The Java Development Kit (JDK) version 8.0.25</summary>
-    <description>The Java Development Kit (JDK) version 8.0.25</description>
+    <summary>The Java Development Kit (JDK) version 8.0.25.03</summary>
+    <description>The Java Development Kit (JDK) version 8.0.25.03</description>
     <projectUrl>http://www.oracle.com/technetwork/java/javase/downloads/index.html</projectUrl>
     <tags>java jdk</tags>
     <licenseUrl>http://www.oracle.com/technetwork/java/javase/terms/license/index.html</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <iconUrl>https://raw.githubusercontent.com/carolynvs/chocolatey-packages/master/Java.JDK/java-logo.jpg</iconUrl>
+    <iconUrl>http://cdn.rawgit.com/chocolatey/chocolatey-coreteampackages/50fd97744110dcbce1acde889c0870599c9d5584/icons/java.svg</iconUrl>
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
