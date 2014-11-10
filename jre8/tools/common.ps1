@@ -22,8 +22,6 @@ function download-from-oracle($url, $output_filename) {
     if (-not (has_file($output_fileName))) {
         Write-Host  "Downloading jre from $url"
 
-        #$client = New-Object Net.WebClient
-        #$dummy = $client.DownloadFile($url, $output_filename)
         Get-ChocolateyWebFile 'jre8' $output_fileName $url $url
     }  
 }
