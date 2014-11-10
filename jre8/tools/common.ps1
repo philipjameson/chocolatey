@@ -10,7 +10,7 @@ function use64bit($Forcei586 = $false) {
     if (Test-Path (Join-Path $script_path "i586.txt")) {
         return $false
     }
-    $is64bitOS = (Get-WmiObject -Class Win32_ComputerSystem).SystemType -match ‘(x64)’
+    $is64bitOS = Get-ProcessorBits 64
     return $is64bitOS
 }
 
@@ -22,8 +22,9 @@ function download-from-oracle($url, $output_filename) {
     if (-not (has_file($output_fileName))) {
         Write-Host  "Downloading jre from $url"
 
-        $client = New-Object Net.WebClient
-        $dummy = $client.DownloadFile($url, $output_filename)
+        #$client = New-Object Net.WebClient
+        #$dummy = $client.DownloadFile($url, $output_filename)
+        Get-ChocolateyWebFile 'jre8' $output_fileName $url $url
     }  
 }
 
