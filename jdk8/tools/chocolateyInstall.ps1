@@ -7,7 +7,15 @@ try {
     $params = "$env:chocolateyPackageParameters" # -params '"x64=false;path=c:\\java\\jdk"'
     $params = (ConvertFrom-StringData $params.Replace(";", "`n")) 
     
-    chocolatey-install  
+    if (check-both($params)) {
+        chocolatey-install $true
+        chocolatey-install
+        out-both($params)
+    } else {
+        out-i586($params)
+        chocolatey-install
+    }   
+    set-path
 } catch {
     if ($_.Exception.InnerException) {
         $msg = $_.Exception.InnerException.Message

@@ -4,8 +4,14 @@ $java_version = "1.8.0_25" # cmd> java -version => "1.7.0_04"
 $uninstall_id = "18025" 
 $script_path = $(Split-Path -parent $MyInvocation.MyCommand.Definition)
 
-function use64bit() {
-    $is64bitOS = (Get-WmiObject -Class Win32_ComputerSystem).SystemType -match ‘(x64)’
+function use64bit($Forcei586 = $false) {
+    if ($Forcei586) {
+        return $false
+    }
+    if (Test-Path (Join-Path $script_path "i586.txt")) {
+        return $false
+    }
+    $is64bitOS = Get-ProcessorBits 64
     return $is64bitOS
 }
 
@@ -14,8 +20,11 @@ function has_file($filename) {
 }
 
 function get-programfilesdir() {
-    $use64bit = use64bit
-    $programFiles = (Get-Item "Env:ProgramFiles").Value
+    if (use64bit) {
+        $programFiles = (Get-Item "Env:ProgramFiles").Value
+    } else {
+        $programFiles = (Get-Item "Env:ProgramFiles(x86)").Value
+    }
 
     return $programFiles
 }
@@ -36,8 +45,8 @@ function download-jdk-file($url, $output_filename) {
     $dummy = download-from-oracle $url $output_filename
 }
 
-function download-jdk() {
-    $arch = get-arch
+function download-jdk($Forcei586 = $false) {
+    $arch = get-arch $Forcei586
     $filename = "jdk-$jdk_version-windows-$arch.exe"
     $url = "http://download.oracle.com/otn-pub/java/jdk/$jdk_version-b$build/$filename"
     $output_filename = Join-Path $script_path $filename
@@ -50,7 +59,7 @@ function download-jdk() {
 
 function get-java-home() {
     $program_files = get-programfilesdir
-    return Join-Path $program_files "Java\jdk$java_version" #jdk1.6.0_17
+    return Join-Path $program_files "Java\jdk$java_version" 
 }
 
 function get-java-bin() {
@@ -58,23 +67,26 @@ function get-java-bin() {
     return Join-Path $java_home 'bin'
 }
 
-function get-arch() {
-    if(use64bit) {
+function get-arch($Forcei586 = $false) {
+    if((use64bit $Forcei586)) {
         return "x64"
     } else {
         return "i586"
     }
 }
 
-function chocolatey-install() {
-    $jdk_file = download-jdk
-    $arch = get-arch
+function chocolatey-install($Forcei586 = $false) {
+    $jdk_file = download-jdk $Forcei586
+    $arch = get-arch $Forcei586
     $java_home = get-java-home
     $java_bin = get-java-bin
 
-    Write-Host "Installing JDK $jdk_version($arch) to $java_home"
     Install-ChocolateyInstallPackage 'jdk8' 'exe' "/s" $jdk_file          
+}
 
+function set-path() {
+    $java_home = get-java-home
+    $java_bin = get-java-bin
     Install-ChocolateyPath $java_bin 'Machine'              
          
     if ([Environment]::GetEnvironmentVariable('CLASSPATH','Machine') -eq $null) {
@@ -84,4 +96,20 @@ function chocolatey-install() {
     Install-ChocolateyEnvironmentVariable 'JAVA_HOME' $java_home 'Machine'
 
     Write-ChocolateySuccess 'jdk8'
+}
+
+function out-i586($params) {
+    if ($params.i586 -eq $true -or $params.x64 -eq $false) {
+        Out-File (Join-Path $script_path "i586.txt")
+    }
+}
+
+function check-both($params) {
+    return ($params.both -eq $true) -and (use64bit) 
+}
+
+function out-both($params) {
+    if (check-both($params)) {
+            Out-File (Join-Path $script_path "both.txt")
+    }
 }
