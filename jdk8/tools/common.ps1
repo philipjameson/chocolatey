@@ -20,7 +20,7 @@ function has_file($filename) {
 }
 
 function get-programfilesdir() {
-    if (use64bit) {
+    if ((use64bit) -or (Get-ProcessorBits 32)) {
         $programFiles = (Get-Item "Env:ProgramFiles").Value
     } else {
         $programFiles = (Get-Item "Env:ProgramFiles(x86)").Value
