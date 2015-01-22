@@ -1,6 +1,5 @@
-﻿$jre_version = '8u25' 
-$build = '18'
-$uninstall_id = "18025" 
+﻿$jre_version = '8u31' 
+$uninstall_id = "18031" 
 $script_path = $(Split-Path -parent $MyInvocation.MyCommand.Definition)
 
 function use64bit($Forcei586 = $false) {
@@ -34,9 +33,9 @@ function download-jre($Forcei586 = $false) {
     $arch = get-arch $Forcei586
     $filename = "jre-$jre_version-windows-$arch.exe"
     if ($arch -eq "x64") {
-       $bundleId = "98428"
+       $bundleId = "101408"
     } else {
-       $bundleId = "98426"
+       $bundleId = "101406"
     }
     $url = "http://javadl.sun.com/webapps/download/AutoDL?BundleId=$bundleId"
     $output_filename = Join-Path $script_path $filename

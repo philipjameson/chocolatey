@@ -11,15 +11,15 @@
 
 If you want to install 32bits JDK on 64bits OS
 
-choco install jre8 -params "x64=false"
+choco install jdk8 -params "x64=false"
 
 or
 
-choco install jre8 -params "i586=true"
+choco install jdk8 -params "i586=true"
 
 if you install by
 
-choco install jre8 -params "both=true"
+choco install jdk8 -params "both=true"
 
 then
 
