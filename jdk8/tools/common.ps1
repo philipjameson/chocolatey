@@ -81,7 +81,7 @@ function chocolatey-install($Forcei586 = $false) {
     $java_home = get-java-home
     $java_bin = get-java-bin
 
-    Install-ChocolateyInstallPackage 'jdk8' 'exe' "/s" $jdk_file          
+    Install-ChocolateyInstallPackage 'jdk8' 'exe' '/s ADDLOCAL="ToolsFeature,SourceFeature,PublicjreFeature"' $jdk_file          
 }
 
 function set-path() {

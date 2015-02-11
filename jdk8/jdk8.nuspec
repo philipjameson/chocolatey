@@ -3,7 +3,7 @@
   <metadata>
     <id>jdk8</id>
     <title>Java SE</title>
-    <version>8.0.31</version>
+    <version>8.0.31.01</version>
     <authors>Sun Microsystems/Oracle Corporation</authors>
     <owners>oota_ken</owners>
     <summary>The Java Development Kit (JDK) version 8.0.31</summary>
