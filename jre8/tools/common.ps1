@@ -1,5 +1,5 @@
-﻿$jre_version = '8u31' 
-$uninstall_id = "18031" 
+﻿$jre_version = '8u40' 
+$uninstall_id = "18040" 
 $script_path = $(Split-Path -parent $MyInvocation.MyCommand.Definition)
 
 function use64bit($Forcei586 = $false) {
@@ -33,9 +33,9 @@ function download-jre($Forcei586 = $false) {
     $arch = get-arch $Forcei586
     $filename = "jre-$jre_version-windows-$arch.exe"
     if ($arch -eq "x64") {
-       $bundleId = "101408"
+       $bundleId = "104768"
     } else {
-       $bundleId = "101406"
+       $bundleId = "104766"
     }
     $url = "http://javadl.sun.com/webapps/download/AutoDL?BundleId=$bundleId"
     $output_filename = Join-Path $script_path $filename
@@ -61,21 +61,36 @@ function chocolatey-install($Forcei586 = $false) {
     Write-Host "Installing jre $jre_version($arch) to $java_home"
     Install-ChocolateyInstallPackage 'jre8' 'exe' "/s" $jre_file          
 
-    Write-ChocolateySuccess 'jre8'
+    Update-SessionEnvironment
 }
 
 function out-i586($params) {
-    if ($params.i586 -eq $true -or $params.x64 -eq $false) {
+    $jre_platform = Get-EnvironmentVariable 'JRE_PLATFORM' 'MACHINE'
+    if ($params.i586 -eq $true -or $params.x64 -eq $false -or 'i586' -eq $jre_platform) {
         Out-File (Join-Path $script_path "i586.txt")
+        Install-ChocolateyEnvironmentVariable 'JRE_PLATFORM' 'i586' 'Machine'
     }
 }
 
 function check-both($params) {
-    return ($params.both -eq $true) -and (use64bit) 
+    $jre_platform = Get-EnvironmentVariable 'JRE_PLATFORM' 'MACHINE' 
+    if ((($params.both -eq $true) -and (use64bit)) -or ('both' -eq $jre_platform)) {
+        return $true
+    }
 }
 
 function out-both($params) {
     if (check-both($params)) {
             Out-File (Join-Path $script_path "both.txt")
+            Install-ChocolateyEnvironmentVariable 'JRE_PLATFORM' 'both' 'Machine'
+    }
+}
+
+function remove-platform-files {
+    if (Test-Path (Join-Path $script_path "i586.txt")) {
+        Remove-Item (Join-Path $script_path "i586.txt")
+    }
+    if (Test-Path (Join-Path $script_path "both.txt")) {
+        Remove-Item (Join-Path $script_path "both.txt")
     }
 }

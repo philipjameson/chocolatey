@@ -3,27 +3,32 @@
   <metadata>
     <id>jre8</id>
     <title>Java SE Runtime Environment</title>
-    <version>8.0.31</version>
+    <version>8.0.40</version>
     <authors>Sun Microsystems/Oracle Corporation</authors>
     <owners>oota_ken</owners>
-    <summary>Java SE Runtime Environment 8.0.31</summary>
+    <summary>Java SE Runtime Environment 8.0.40</summary>
     <description>By default this package installs JRE according to your platform (x86 or x64).
 
 If you want to install 32bits JRE on 64bits OS
-
+```
 choco install jre8 -params "x64=false"
-
+```
 or
-
+```
 choco install jre8 -params "i586=true"
-
+```
 if you install by
-
+```
 choco install jre8 -params "both=true"
+```
+then, both 32bits and 64bits JRE will be installed and 64bits will be defaults.
 
-then
-
-Both 32bits and 64bits JRE will be installed and 64bits will be defaults.</description>
+After you install version 8.0.40, when you want to upgrade JRE after version 8.0.40, you have only
+```
+choco upgrade jre8
+```
+-params will be passed down to next version by Environment $env:JRE_PLATFORM.
+</description>
     <projectUrl>http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html</projectUrl>
     <tags>java jre</tags>
     <licenseUrl>http://www.oracle.com/technetwork/java/javase/terms/license/index.html</licenseUrl>

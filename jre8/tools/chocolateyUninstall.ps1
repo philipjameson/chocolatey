@@ -23,6 +23,4 @@ try {
     Uninstall-JRE
 } catch {
     # ingore exception
-} finally {
-    Write-ChocolateySuccess 'jre8'
 }
