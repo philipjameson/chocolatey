@@ -3,24 +3,24 @@
   <metadata>
     <id>jdk8</id>
     <title>Java SE</title>
-    <version>8.0.31.01</version>
+    <version>8.0.45</version>
     <authors>Sun Microsystems/Oracle Corporation</authors>
     <owners>oota_ken</owners>
-    <summary>The Java Development Kit (JDK) version 8.0.31</summary>
+    <summary>The Java Development Kit (JDK) version 8.0.45</summary>
     <description>By default this package installs JDK according to your platform (x86 or x64).
 
 If you want to install 32bits JDK on 64bits OS
-
+```
 choco install jdk8 -params "x64=false"
-
+```
 or
-
+```
 choco install jdk8 -params "i586=true"
-
+```
 if you install by
-
+```
 choco install jdk8 -params "both=true"
-
+```
 then
 
 Both 32bits and 64bits JDK will be installed and 64bits will be defaults.</description>
