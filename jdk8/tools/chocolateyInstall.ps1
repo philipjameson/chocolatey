@@ -22,7 +22,5 @@ try {
     } else {
         $msg = $_.Exception.Message
     }
-    
-    Write-ChocolateyFailure 'jdk8' "$msg"
     throw 
 }  

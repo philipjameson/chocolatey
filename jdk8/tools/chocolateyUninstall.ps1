@@ -66,7 +66,4 @@ try {
   Install-ChocolateyEnvironmentVariable 'JAVA_HOME' $null 'Machine'
 } catch {
     # ingore exception
-} finally {
-  Write-ChocolateySuccess 'jdk8'
-
 }

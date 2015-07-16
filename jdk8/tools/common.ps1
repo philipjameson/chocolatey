@@ -1,7 +1,7 @@
-﻿$jdk_version = '8u45' 
-$build = '14'
-$java_version = "1.8.0_45" 
-$uninstall_id = "18045" 
+﻿$jdk_version = '8u51' 
+$build = '16'
+$java_version = "1.8.0_51" 
+$uninstall_id = "18051" 
 $script_path = $(Split-Path -parent $MyInvocation.MyCommand.Definition)
 
 function use64bit($Forcei586 = $false) {
@@ -94,8 +94,6 @@ function set-path() {
     }
 
     Install-ChocolateyEnvironmentVariable 'JAVA_HOME' $java_home 'Machine'
-
-    Write-ChocolateySuccess 'jdk8'
 }
 
 function out-i586($params) {
