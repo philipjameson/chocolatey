@@ -3,10 +3,10 @@
   <metadata>
     <id>jdk8</id>
     <title>Java SE</title>
-    <version>8.0.51</version>
+    <version>8.0.60</version>
     <authors>Sun Microsystems/Oracle Corporation</authors>
     <owners>oota_ken</owners>
-    <summary>The Java Development Kit (JDK) version 8.0.51</summary>
+    <summary>The Java Development Kit (JDK) version 8.0.60</summary>
     <description>By default this package installs JDK according to your platform (x86 or x64).
 
 If you want to install 32bits JDK on 64bits OS
