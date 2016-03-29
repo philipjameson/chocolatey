@@ -37,11 +37,11 @@ function Uninstall-JDK-And-JRE {
         $jdk = "/qn /x {64A3A4F4-B792-11D6-A78A-00B0D0" + $uninstall_id + "0}"
         $jre = "/qn /x {26A24AE4-039D-4CA4-87B4-2F864" + $uninstall_id + "F0}"
         Start-ChocolateyProcessAsAdmin $jdk 'msiexec'
-        Start-ChocolateyProcessAsAdmin $jre 'msiexec'
+        #Start-ChocolateyProcessAsAdmin $jre 'msiexec'
         $jdk = "/qn /x {32A3A4F4-B792-11D6-A78A-00B0D0" + $uninstall_id + "0}"
         $jre = "/qn /x {26A24AE4-039D-4CA4-87B4-2F832" + $uninstall_id + "F0}"
         Start-ChocolateyProcessAsAdmin $jdk 'msiexec'
-        Start-ChocolateyProcessAsAdmin $jre 'msiexec'
+        #Start-ChocolateyProcessAsAdmin $jre 'msiexec'
     } else {
         $use64bit = use64bit
         if ($use64bit) {
@@ -52,7 +52,7 @@ function Uninstall-JDK-And-JRE {
             $jre = "/qn /x {26A24AE4-039D-4CA4-87B4-2F832" + $uninstall_id + "F0}"   
         }
         Start-ChocolateyProcessAsAdmin $jdk 'msiexec'
-        Start-ChocolateyProcessAsAdmin $jre 'msiexec'
+        #Start-ChocolateyProcessAsAdmin $jre 'msiexec'
     }
 }
 try {  

@@ -1,7 +1,7 @@
-﻿$jdk_version = '8u74' 
-$build = '02'
-$java_version = "1.8.0_74" 
-$uninstall_id = "18072" 
+﻿$jdk_version = '8u77' 
+$build = '03'
+$java_version = "1.8.0_77" 
+$uninstall_id = "18077" 
 $script_path = $(Split-Path -parent $MyInvocation.MyCommand.Definition)
 
 function use64bit($Forcei586 = $false) {
@@ -81,7 +81,7 @@ function chocolatey-install($Forcei586 = $false) {
     $java_home = get-java-home
     $java_bin = get-java-bin
 
-    Install-ChocolateyInstallPackage 'jdk8' 'exe' '/s ADDLOCAL="ToolsFeature,SourceFeature,PublicjreFeature"' $jdk_file          
+    Install-ChocolateyInstallPackage 'jdk8' 'exe' '/s STATIC=1 ADDLOCAL="ToolsFeature,SourceFeature"' $jdk_file          
 }
 
 function set-path() {
