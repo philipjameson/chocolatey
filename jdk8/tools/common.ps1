@@ -34,10 +34,14 @@ function download-from-oracle($url, $output_filename) {
     if (-not (has_file($output_fileName))) {
         Write-Host  "Downloading JDK from $url"
 
-        [System.Net.ServicePointManager]::ServerCertificateValidationCallback = { $true }
-        $client = New-Object Net.WebClient
-        $dummy = $client.Headers.Add('Cookie', 'gpw_e24=http://www.oracle.com; oraclelicense=accept-securebackup-cookie')
-        $dummy = $client.DownloadFile($url, $output_filename)
+        try {
+            [System.Net.ServicePointManager]::ServerCertificateValidationCallback = { $true }
+            $client = New-Object Net.WebClient
+            $dummy = $client.Headers.Add('Cookie', 'gpw_e24=http://www.oracle.com; oraclelicense=accept-securebackup-cookie')
+            $dummy = $client.DownloadFile($url, $output_filename)
+        } finally {
+            [System.Net.ServicePointManager]::ServerCertificateValidationCallback = $null
+        }
     }  
 }
 
