@@ -3,16 +3,17 @@
   <metadata>
     <id>jdk8</id>
     <title>Java SE</title>
-    <version>8.0.121</version>
+    <version>8.0.131</version>
     <authors>Sun Microsystems/Oracle Corporation</authors>
     <owners>oota_ken</owners>
-    <summary>The Java Development Kit (JDK) version 8.0.121</summary>
+    <summary>The Java Development Kit (JDK) version 8.0.131</summary>
     <releaseNotes>
-      Java SE Development Kit 8u121
+      Java SE Development Kit 8u131
 
       changes:
-      -8u121
-      -fix issue for ServerCertificateValidationCallback
+      -8u131
+      -support not to install source
+
     </releaseNotes>
     <packageSourceUrl>https://chocolatey.org/packages/jdk8/</packageSourceUrl>
     <description>By default this package installs JDK according to your platform (x86 or x64).
@@ -31,7 +32,15 @@ choco install jdk8 -params "both=true"
 ```
 then
 
-Both 32bits and 64bits JDK will be installed and 64bits will be defaults.</description>
+Both 32bits and 64bits JDK will be installed and 64bits will be defaults.
+
+By default this package installs JDK with source codes(zip).
+
+If you don't want to install source codes
+```
+choco install jdk8 -params "source=false"
+```
+</description>
     <projectUrl>http://www.oracle.com/technetwork/java/javase/downloads/index.html</projectUrl>
     <tags>java jdk admin</tags>
     <licenseUrl>http://www.oracle.com/technetwork/java/javase/terms/license/index.html</licenseUrl>
