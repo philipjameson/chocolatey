@@ -47,7 +47,7 @@ choco install jdk8 -params "static=false"
 ```
 If you want to specfiy install directory (you need \\\\ for escape)
 ```
-choco install jdk8 -params 'installdir=c:\\\\java8'
+choco install jdk8 -params 'installdir=c:\\java8'
 ```
 </description>
     <projectUrl>http://www.oracle.com/technetwork/java/javase/downloads/index.html</projectUrl>
