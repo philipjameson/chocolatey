@@ -4,16 +4,17 @@ $common = $(Join-Path $script_path "common.ps1")
  
 #installs jdk8
 try {
-    $params = "$env:chocolateyPackageParameters" # -params '"x64=false;path=c:\\java\\jdk"'
+    $params = "$env:chocolateyPackageParameters" 
     $params = (ConvertFrom-StringData $params.Replace(";", "`n")) 
      
+    out-installdir($params)
     if (check-both($params)) {
-        chocolatey-install $true
-        chocolatey-install
+        chocolatey-install $params $true
+        chocolatey-install $params
         out-both($params)
     } else {
         out-i586($params)
-        chocolatey-install
+        chocolatey-install $params
     }   
     set-path
 } catch {

@@ -3,16 +3,17 @@
   <metadata>
     <id>jdk8</id>
     <title>Java SE</title>
-    <version>8.0.131</version>
+    <version>8.0.141</version>
     <authors>Sun Microsystems/Oracle Corporation</authors>
     <owners>oota_ken</owners>
-    <summary>The Java Development Kit (JDK) version 8.0.131</summary>
+    <summary>The Java Development Kit (JDK) version 8.0.141</summary>
     <releaseNotes>
-      Java SE Development Kit 8u131
+      Java SE Development Kit 8u141
 
       changes:
-      -8u131
-      -support not to install source
+      -8u141
+      -support static false
+      -support installdir
 
     </releaseNotes>
     <packageSourceUrl>https://chocolatey.org/packages/jdk8/</packageSourceUrl>
@@ -40,6 +41,14 @@ If you don't want to install source codes
 ```
 choco install jdk8 -params "source=false"
 ```
+If you want auto update
+```
+choco install jdk8 -params "static=false"
+```
+If you want to specfiy install directory (you need \\ for escape)
+```
+choco install jdk8 -params 'installdir=c:\\java8'
+
 </description>
     <projectUrl>http://www.oracle.com/technetwork/java/javase/downloads/index.html</projectUrl>
     <tags>java jdk admin</tags>

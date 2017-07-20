@@ -1,8 +1,8 @@
-﻿$jdk_version = '8u131'
-$build = '11'
-$java_version = "1.8.0_131"
-$uninstall_id = "180131"
-$id = "d54c1d3a095b4ff2b6607d096fa80163"
+﻿$jdk_version = '8u141'
+$build = '15'
+$java_version = "1.8.0_141"
+$uninstall_id = "180141"
+$id = "336fa29ff2bb4ef291e347e091f7f4a7"
 $script_path = $(Split-Path -parent $MyInvocation.MyCommand.Definition)
  
 function use64bit($Forcei586 = $false) {
@@ -101,6 +101,10 @@ function download-jdk($Forcei586 = $false) {
  
  
 function get-java-home() {
+    if (Test-Path (Join-Path $script_path "installdir.txt")) {
+        return Get-Content (Join-Path $script_path "installdir.txt")
+    }
+
     $program_files = get-programfilesdir
     return Join-Path $program_files "Java\jdk$java_version"
 }
@@ -118,16 +122,29 @@ function get-arch($Forcei586 = $false) {
     }
 }
  
-function chocolatey-install($Forcei586 = $false) {
+function chocolatey-install($params, $Forcei586 = $false) {
     $jdk_file = download-jdk $Forcei586
     $arch = get-arch $Forcei586
     $java_home = get-java-home
     $java_bin = get-java-bin
-    if ($params.source -eq $false) {
-        $install_options = '/s STATIC=1 ADDLOCAL="ToolsFeature"'
-    } else {
-        $install_options = '/s STATIC=1 ADDLOCAL="ToolsFeature,SourceFeature"'
+    $install_options = '/s '
+    if ($params.static -ne $false) {
+        $install_options += 'STATIC=1 '
     }
+    if ($params.installdir -ne $null) {
+        $install_options += 'INSTALLDIR=' + $params.installdir + ' '
+    }
+
+    $install_options += 'ADDLOCAL="ToolsFeature'
+    if ($params.source -ne $false) {
+        $install_options += ',SourceFeature'
+    }
+    $install_options += '"'
+    #if ($params.source -eq $false) {
+    #    $install_options = '/s STATIC=1 ADDLOCAL="ToolsFeature"'
+    #} else {
+    #    $install_options = '/s STATIC=1 ADDLOCAL="ToolsFeature,SourceFeature"'
+    #}
     Install-ChocolateyInstallPackage 'jdk8' 'exe' $install_options $jdk_file          
 }
  
@@ -156,5 +173,11 @@ function check-both($params) {
 function out-both($params) {
     if (check-both($params)) {
             Out-File (Join-Path $script_path "both.txt")
+    }
+}
+
+function out-installdir($params) {
+    if ($params.installdir -ne $null) {
+        Out-File -InputObject $params.installdir -FilePath (Join-Path $script_path "installdir.txt")
     }
 }
