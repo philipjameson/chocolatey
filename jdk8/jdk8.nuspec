@@ -17,14 +17,17 @@
     <packageSourceUrl>https://chocolatey.org/packages/jdk8/</packageSourceUrl>
     <description>By default this package installs JDK according to your platform (x86 or x64).
 
-If you want to install 32bits JDK on 64bits OS
+To force x86 (32bit) installation on 64 bit systems
 ```
-choco install jdk8 -params "x64=false"
+choco install jdk8 --x86
 ```
 or
 ```
-choco install jdk8 -params "i586=true"
+choco install jdk8 --forcex86
 ```
+
+Note that params "i586=true" and "x64=false" are deprecated.
+
 if you install by
 ```
 choco install jdk8 -params "both=true"
