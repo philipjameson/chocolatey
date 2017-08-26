@@ -161,7 +161,7 @@ function set-path() {
 }
  
 function out-i586($params) {
-    if ($params.i586 -eq $true -or $params.x64 -eq $false) {
+    if ($env:ChocolateyForceX86 -eq 'true' -or $params.i586 -eq $true -or $params.x64 -eq $false) {
         Out-File (Join-Path $script_path "i586.txt")
     }
 }
