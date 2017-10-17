@@ -19,11 +19,11 @@
 
 If you don't want to install source codes
 ```
-choco install jdk8 -params "source=false"
+choco install jdk9 -params "source=false"
 ```
 If you want auto update
 ```
-choco install jdk8 -params "static=false"
+choco install jdk9 -params "static=false"
 ```
 If you want to specfiy install directory (you need \\\\ for escape)
 ```
