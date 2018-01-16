@@ -3,15 +3,15 @@
   <metadata>
     <id>jdk8</id>
     <title>Java SE</title>
-    <version>8.0.152</version>
+    <version>8.0.162</version>
     <authors>Sun Microsystems/Oracle Corporation</authors>
     <owners>oota_ken</owners>
-    <summary>The Java Development Kit (JDK) version 8.0.152</summary>
+    <summary>The Java Development Kit (JDK) version 8.0.162</summary>
     <releaseNotes>
-      Java SE Development Kit 8u152
+      Java SE Development Kit 8u162
 
       changes:
-      -8u152
+      -8u162
 
     </releaseNotes>
     <packageSourceUrl>https://chocolatey.org/packages/jdk8/</packageSourceUrl>
