@@ -3,10 +3,10 @@
   <metadata>
     <id>jdk9</id>
     <title>Java SE</title>
-    <version>9.0.1.11</version>
+    <version>9.0.4.11</version>
     <authors>Sun Microsystems/Oracle Corporation</authors>
     <owners>oota_ken</owners>
-    <summary>The Java Development Kit (JDK) version 9.0.1.11</summary>
+    <summary>The Java Development Kit (JDK) version 9.0.4.11</summary>
     <releaseNotes>
       Java SE Development Kit 9
 

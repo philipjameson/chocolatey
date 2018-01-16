@@ -1,5 +1,6 @@
-﻿$jdk_version = '9.0.1'
+﻿$jdk_version = '9.0.4'
 $build = '11'
+$id = "c2514751926b4512b076cc82f959763f"
 $script_path = $(Split-Path -parent $MyInvocation.MyCommand.Definition)
 
 function has_file($filename) {
@@ -71,7 +72,7 @@ function download-jdk-file($url, $output_filename) {
  
 function download-jdk() {
     $filename = "jdk-" + $jdk_version + "_windows-x64_bin.exe"
-    $url = "http://download.oracle.com/otn-pub/java/jdk/$jdk_version+$build/$filename"
+    $url = "http://download.oracle.com/otn-pub/java/jdk/$jdk_version+$build/$id/$filename"
     $output_filename = Join-Path $script_path $filename
  
     $dummy = download-jdk-file $url $output_filename
