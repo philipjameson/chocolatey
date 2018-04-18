@@ -3,15 +3,15 @@
   <metadata>
     <id>jdk10</id>
     <title>Java SE</title>
-    <version>10.0</version>
+    <version>10.0.1</version>
     <authors>Sun Microsystems/Oracle Corporation</authors>
     <owners>oota_ken</owners>
-    <summary>The Java Development Kit (JDK) version 10.0</summary>
+    <summary>The Java Development Kit (JDK) version 10.0.1</summary>
     <releaseNotes>
-      Java SE Development Kit 10
+      Java SE Development Kit 10.0.1
 
       changes:
-      -first public release
+      -10.0.1
 
     </releaseNotes>
     <packageSourceUrl>https://chocolatey.org/packages/jdk10/</packageSourceUrl>
